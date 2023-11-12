@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VB;
 
 namespace Measure
 {
@@ -22,9 +23,6 @@ namespace Measure
 
         private void button1_Click(object sender, EventArgs e)
         {
-            VB.VB01 vb01 = new VB.VB01();
-            vb01.GetValue();
-
             using (var f = new MeasureForm(new CS01()))
             {
                 f.ShowDialog();
@@ -34,6 +32,14 @@ namespace Measure
         private void button2_Click(object sender, EventArgs e)
         {
             using (var f = new MeasureForm(new CS02()))
+            {
+                f.ShowDialog();
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            using (var f = new MeasureForm(new VB01Adapter()))
             {
                 f.ShowDialog();
             }
