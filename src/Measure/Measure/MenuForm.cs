@@ -22,6 +22,9 @@ namespace Measure
 
         private void button1_Click(object sender, EventArgs e)
         {
+            VB.VB01 vb01 = new VB.VB01();
+            vb01.GetValue();
+
             using (var f = new MeasureForm(new CS01()))
             {
                 f.ShowDialog();
