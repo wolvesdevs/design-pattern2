@@ -39,7 +39,15 @@ namespace Measure
 
         private void button3_Click(object sender, EventArgs e)
         {
-            using (var f = new MeasureForm(new VB01Adapter()))
+            using (var f = new MeasureForm(new VBSeriesAdapter(new VB.VB01())))
+            {
+                f.ShowDialog();
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            using (var f = new MeasureForm(new VBSeriesAdapter(new VB.VB02())))
             {
                 f.ShowDialog();
             }

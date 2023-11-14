@@ -53,7 +53,9 @@
     <Compile Include="CSSeries\CS02.cs" />
     <Compile Include="CSSeries\CS01.cs" />
     <Compile Include="CSSeries\ICSSeries.cs" />
+    <Compile Include="CSSeries\IVBSeries.cs" />
     <Compile Include="CSSeries\VB01Adapter.cs" />
+    <Compile Include="CSSeries\VBSeriesAdapter.cs" />
     <Compile Include="MeasureForm.cs">
       <SubType>Form</SubType>
     </Compile>
