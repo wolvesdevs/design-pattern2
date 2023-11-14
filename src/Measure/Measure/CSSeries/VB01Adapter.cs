@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Measure.CSSeries
 {
-    internal class VB01Adapter : ICSSeries
+    internal class VB01Adapter : VB.VB01, ICSSeries
     {
-        private VB.VB01 _vb01 = new VB.VB01();
+        //private VB.VB01 _vb01 = new VB.VB01();
 
         public int GetMeasure()
         {
-            return _vb01.GetValue();
+            return base.GetValue();
         }
     }
 }
