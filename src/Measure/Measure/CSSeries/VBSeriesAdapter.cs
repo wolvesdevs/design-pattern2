@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Measure.CSSeries
 {
-    internal class VBSeriesAdapter : ICSSeries
+    internal class VBSeriesAdapter : CSSeriesBase
     {
         private VB.IVBSeries _vbSeries;
 
@@ -15,7 +15,7 @@ namespace Measure.CSSeries
             _vbSeries = vBSeries;
         }
 
-        public int GetMeasure()
+        public override int GetMeasure()
         {
             return _vbSeries.GetValue();
         }

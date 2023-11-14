@@ -13,8 +13,8 @@ namespace Measure
 {
     public partial class MeasureForm : Form
     {
-        private ICSSeries _csSeries;
-        public MeasureForm(ICSSeries csSeries)
+        private CSSeriesBase _csSeries;
+        public MeasureForm(CSSeriesBase csSeries)
         {
             _csSeries = csSeries;
             InitializeComponent();

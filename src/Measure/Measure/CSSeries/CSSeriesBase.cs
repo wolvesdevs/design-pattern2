@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Measure.CSSeries
 {
-    public interface ICSSeries
+    public abstract class CSSeriesBase
     {
-        int GetMeasure();
+        public abstract int GetMeasure();
     }
 }

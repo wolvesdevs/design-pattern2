@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Measure.CSSeries
 {
-    internal sealed class CS02 : ICSSeries
+    internal sealed class CS02 : CSSeriesBase
     {
-        public int GetMeasure()
+        public override int GetMeasure()
         {
             //色々実機にアクセスする・・・
             return 2000;
