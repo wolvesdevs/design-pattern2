@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Measure.CSSeries
 {
-    public interface ICSSeries
+    public interface IVBSeries
     {
-        int GetMeasure();
     }
 }
