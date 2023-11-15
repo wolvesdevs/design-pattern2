@@ -9,10 +9,21 @@ namespace シングルトン
     public class CheckTimer
     {
         private System.Threading.Timer _timer;
+        private static CheckTimer _instance;
 
-        public CheckTimer()
+        private CheckTimer()
         {
             _timer = new System.Threading.Timer(TimerCallback);
+        }
+
+        public static CheckTimer GetInstance()
+        {
+            if (_instance == null)
+            {
+                _instance = new CheckTimer();
+            }
+
+            return _instance;
         }
 
         public bool IsError { get; private set; }
