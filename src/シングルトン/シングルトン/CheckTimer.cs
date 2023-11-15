@@ -9,6 +9,7 @@ namespace シングルトン
     public class CheckTimer
     {
         private System.Threading.Timer _timer;
+        private static readonly object _lock = new object();
         private static CheckTimer _instance;
 
         private CheckTimer()
@@ -18,9 +19,12 @@ namespace シングルトン
 
         public static CheckTimer GetInstance()
         {
-            if (_instance == null)
+            lock (_lock)
             {
-                _instance = new CheckTimer();
+                if (_instance == null)
+                {
+                    _instance = new CheckTimer();
+                }
             }
 
             return _instance;
