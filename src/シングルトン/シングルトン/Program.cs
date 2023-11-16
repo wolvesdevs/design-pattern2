@@ -16,7 +16,7 @@ namespace シングルトン
         [STAThread]
         static void Main()
         {
-            CheckTimer.GetInstance().Start();
+            CheckTimer.Instance.Start();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
