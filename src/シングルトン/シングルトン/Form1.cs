@@ -21,7 +21,7 @@ namespace シングルトン
         private void Form1_Load(object sender, EventArgs e)
         {
             //_checkTimer.Start();
-            CheckTimer.GetInstance().Start();
-        }
+            CheckTimer.Instance.Start();
+         }
     }
 }
