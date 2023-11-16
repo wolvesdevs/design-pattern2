@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "テスト容易性", "テスト容易性\テスト容易性.csproj", "{6E59A440-15DE-4965-B04C-98CDE3D92CEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "テスト容易性Tests", "テスト容易性Tests\テスト容易性Tests.csproj", "{B91B790A-624F-4B7A-800D-DED55E996014}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6E59A440-15DE-4965-B04C-98CDE3D92CEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E59A440-15DE-4965-B04C-98CDE3D92CEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E59A440-15DE-4965-B04C-98CDE3D92CEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E59A440-15DE-4965-B04C-98CDE3D92CEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B91B790A-624F-4B7A-800D-DED55E996014}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B91B790A-624F-4B7A-800D-DED55E996014}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B91B790A-624F-4B7A-800D-DED55E996014}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B91B790A-624F-4B7A-800D-DED55E996014}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6F6F0D3B-5C78-4CDD-AD89-EC5A05021399}
+	EndGlobalSection
+EndGlobal
