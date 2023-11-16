@@ -8,15 +8,13 @@ namespace シングルトン
 {
     internal static class Program
     {
-        //private static CheckTimer _checkTimer = new CheckTimer();
-
         /// <summary>
         /// アプリケーションのメイン エントリ ポイントです。
         /// </summary>
         [STAThread]
         static void Main()
         {
-            CheckTimer.Instance.Start();
+            CheckTimer.Start();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
