@@ -28,43 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.WarningLabel = new System.Windows.Forms.Label();
             this.SubButton = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // WarningLabel
             // 
             this.WarningLabel.Font = new System.Drawing.Font("MS UI Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.WarningLabel.Location = new System.Drawing.Point(35, 33);
+            this.WarningLabel.Location = new System.Drawing.Point(58, 50);
+            this.WarningLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.WarningLabel.Name = "WarningLabel";
-            this.WarningLabel.Size = new System.Drawing.Size(246, 108);
+            this.WarningLabel.Size = new System.Drawing.Size(410, 162);
             this.WarningLabel.TabIndex = 0;
             this.WarningLabel.Text = "label1";
             this.WarningLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SubButton
             // 
-            this.SubButton.Location = new System.Drawing.Point(37, 164);
+            this.SubButton.Location = new System.Drawing.Point(62, 246);
+            this.SubButton.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.SubButton.Name = "SubButton";
-            this.SubButton.Size = new System.Drawing.Size(105, 30);
+            this.SubButton.Size = new System.Drawing.Size(175, 45);
             this.SubButton.TabIndex = 1;
             this.SubButton.Text = "Sub";
             this.SubButton.UseVisualStyleBackColor = true;
             this.SubButton.Click += new System.EventHandler(this.SubButton_Click);
             // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1333, 675);
             this.Controls.Add(this.SubButton);
             this.Controls.Add(this.WarningLabel);
+            this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "MainForm";
             this.Text = "メイン";
             this.ResumeLayout(false);
@@ -75,7 +72,6 @@
 
         private System.Windows.Forms.Label WarningLabel;
         private System.Windows.Forms.Button SubButton;
-        private System.Windows.Forms.Timer timer1;
     }
 }
 

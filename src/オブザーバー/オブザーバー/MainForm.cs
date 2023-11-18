@@ -18,22 +18,24 @@ namespace オブザーバー
 
             StartPosition = FormStartPosition.CenterScreen;
 
-            timer1.Interval = 5000;
-            timer1.Enabled = true;
+            WarningTimer.WarningAction += WarningTimer_WarningAction;
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void WarningTimer_WarningAction(bool isWarning)
         {
-            if(WarningTimer.IsWarning)
+            this.Invoke((Action)delegate ()
             {
-                WarningLabel.Text = "警報";
-                WarningLabel.BackColor = Color.Red;
-            }
-            else
-            {
-                WarningLabel.Text = "正常";
-                WarningLabel.BackColor = Color.Lime;
-            }
+                if (isWarning)
+                {
+                    WarningLabel.Text = "警報";
+                    WarningLabel.BackColor = Color.Red;
+                }
+                else
+                {
+                    WarningLabel.Text = "正常";
+                    WarningLabel.BackColor = Color.Lime;
+                }
+            });
         }
 
         private void SubButton_Click(object sender, EventArgs e)
