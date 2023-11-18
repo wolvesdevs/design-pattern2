@@ -10,29 +10,49 @@ using System.Windows.Forms;
 
 namespace オブザーバー
 {
-    public partial class SubForm : Form
+    public partial class SubForm : Form, INotify
     {
         public SubForm()
         {
             InitializeComponent();
 
+            this.Disposed += MainForm_Disposed;
             StartPosition = FormStartPosition.CenterScreen;
-
-            timer1.Interval = 5000;
-            timer1.Enabled = true;
+            //WarningTimer.WarningAction += WarningTimer_WarningAction;
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        public void Update(bool isWarning)
         {
-            if(WarningTimer.IsWarning)
+            this.Invoke((Action)delegate ()
             {
-                WarningLabel.Text = "警報";
-                WarningLabel.BackColor = Color.Red;
+                if (isWarning)
+                {
+                    WarningLabel.Text = "警報";
+                    WarningLabel.BackColor = Color.Red;
+                }
+                else
+                {
+                    WarningLabel.Text = "正常";
+                    WarningLabel.BackColor = Color.Lime;
+                }
+            });
+        }
+
+        private void MainForm_Disposed(object sender, EventArgs e)
+        {
+            //WarningTimer.WarningAction -= WarningTimer_WarningAction;
+            WarningTimer.Remove(this);
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                WarningTimer.Add(this);
             }
             else
             {
-                WarningLabel.Text = "正常";
-                WarningLabel.BackColor = Color.Lime;
+                WarningTimer.Remove(this);
             }
         }
     }

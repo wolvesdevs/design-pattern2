@@ -28,41 +28,51 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.WarningLabel = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // WarningLabel
             // 
             this.WarningLabel.Font = new System.Drawing.Font("MS UI Gothic", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.WarningLabel.Location = new System.Drawing.Point(12, 27);
+            this.WarningLabel.Location = new System.Drawing.Point(20, 40);
+            this.WarningLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.WarningLabel.Name = "WarningLabel";
-            this.WarningLabel.Size = new System.Drawing.Size(246, 108);
+            this.WarningLabel.Size = new System.Drawing.Size(410, 162);
             this.WarningLabel.TabIndex = 0;
             this.WarningLabel.Text = "label1";
             this.WarningLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // timer1
+            // checkBox1
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(22, 15);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(106, 22);
+            this.checkBox1.TabIndex = 1;
+            this.checkBox1.Text = "自動更新";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // SubForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(286, 153);
+            this.ClientSize = new System.Drawing.Size(477, 230);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.WarningLabel);
+            this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "SubForm";
             this.Text = "サブ";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Label WarningLabel;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 
