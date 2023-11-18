@@ -9,7 +9,7 @@ namespace オブザーバー
     public static class WarningTimer
     {
         private static System.Threading.Timer _timer;
-        public static event Action<bool> WarningAction;
+        private static event Action<bool> _warningAction;
 
         static WarningTimer()
         {
@@ -26,9 +26,29 @@ namespace オブザーバー
                 if (_isWarning != value)
                 {
                     _isWarning = value;
-                    WarningAction?.Invoke(value);
+                    _warningAction?.Invoke(value);
                 }
             }
+        }
+
+        public static void Add(Action<bool> action)
+        {
+            bool contains = false;
+
+            if (_warningAction != null)
+            {
+                contains = _warningAction.GetInvocationList().Contains(action);
+            }
+
+            if (!contains)
+            {
+                _warningAction += action;
+            }
+        }
+
+        public static void Remove(Action<bool> action)
+        {
+            _warningAction -= action;
         }
 
         public static void Start()

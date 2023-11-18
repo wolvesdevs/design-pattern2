@@ -16,9 +16,16 @@ namespace オブザーバー
         {
             InitializeComponent();
 
+            this.Disposed += MainForm_Disposed;
             StartPosition = FormStartPosition.CenterScreen;
+            //WarningTimer.WarningAction += WarningTimer_WarningAction;
+            WarningTimer.Add(WarningTimer_WarningAction);
+        }
 
-            WarningTimer.WarningAction += WarningTimer_WarningAction;
+        private void MainForm_Disposed(object sender, EventArgs e)
+        {
+            //WarningTimer.WarningAction -= WarningTimer_WarningAction;
+            WarningTimer.Remove(WarningTimer_WarningAction);
         }
 
         private void WarningTimer_WarningAction(bool isWarning)
@@ -39,3 +46,4 @@ namespace オブザーバー
         }
     }
 }
+ 
