@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace オブザーバー
 {
     public static class WarningTimer
     {
         private static System.Threading.Timer _timer;
-        private static event Action<bool> _warningAction;
+        private static List<INotify> _notifies = new List<INotify>();
 
         static WarningTimer()
         {
@@ -26,29 +27,25 @@ namespace オブザーバー
                 if (_isWarning != value)
                 {
                     _isWarning = value;
-                    _warningAction?.Invoke(value);
+                    foreach (var notify in _notifies)
+                    {
+                        notify.Update(value);
+                    }
                 }
             }
         }
 
-        public static void Add(Action<bool> action)
+        public static void Add(INotify notify)
         {
-            bool contains = false;
-
-            if (_warningAction != null)
+            if (!_notifies.Contains(notify))
             {
-                contains = _warningAction.GetInvocationList().Contains(action);
-            }
-
-            if (!contains)
-            {
-                _warningAction += action;
+                _notifies.Add(notify);
             }
         }
 
-        public static void Remove(Action<bool> action)
+        public static void Remove(INotify notify)
         {
-            _warningAction -= action;
+            _notifies.Remove(notify);
         }
 
         public static void Start()

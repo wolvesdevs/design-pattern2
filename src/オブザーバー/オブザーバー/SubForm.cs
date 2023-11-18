@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace オブザーバー
 {
-    public partial class SubForm : Form
+    public partial class SubForm : Form, INotify
     {
         public SubForm()
         {
@@ -19,16 +19,9 @@ namespace オブザーバー
             this.Disposed += MainForm_Disposed;
             StartPosition = FormStartPosition.CenterScreen;
             //WarningTimer.WarningAction += WarningTimer_WarningAction;
-            WarningTimer.Add(WarningTimer_WarningAction);
         }
 
-        private void MainForm_Disposed(object sender, EventArgs e)
-        {
-            //WarningTimer.WarningAction -= WarningTimer_WarningAction;
-            WarningTimer.Remove(WarningTimer_WarningAction);
-        }
-
-        private void WarningTimer_WarningAction(bool isWarning)
+        public void Update(bool isWarning)
         {
             this.Invoke((Action)delegate ()
             {
@@ -44,6 +37,23 @@ namespace オブザーバー
                 }
             });
         }
+
+        private void MainForm_Disposed(object sender, EventArgs e)
+        {
+            //WarningTimer.WarningAction -= WarningTimer_WarningAction;
+            WarningTimer.Remove(this);
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox1.Checked)
+            {
+                WarningTimer.Add(this);
+            }
+            else
+            {
+                WarningTimer.Remove(this);
+            }
+        }
     }
 }
- 

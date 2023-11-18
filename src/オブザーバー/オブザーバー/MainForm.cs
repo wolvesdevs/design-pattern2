@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace オブザーバー
 {
-    public partial class MainForm : Form
+    public partial class MainForm : Form, INotify
     {
         public MainForm()
         {
@@ -19,16 +19,10 @@ namespace オブザーバー
             this.Disposed += MainForm_Disposed;
             StartPosition = FormStartPosition.CenterScreen;
             //WarningTimer.WarningAction += WarningTimer_WarningAction;
-            WarningTimer.Add(WarningTimer_WarningAction);
+            WarningTimer.Add(this);
         }
 
-        private void MainForm_Disposed(object sender, EventArgs e)
-        {
-            //WarningTimer.WarningAction -= WarningTimer_WarningAction;
-            WarningTimer.Remove(WarningTimer_WarningAction);
-        }
-
-        private void WarningTimer_WarningAction(bool isWarning)
+        public void Update(bool isWarning)
         {
             this.Invoke((Action)delegate ()
             {
@@ -43,6 +37,12 @@ namespace オブザーバー
                     WarningLabel.BackColor = Color.Lime;
                 }
             });
+        }
+
+        private void MainForm_Disposed(object sender, EventArgs e)
+        {
+            //WarningTimer.WarningAction -= WarningTimer_WarningAction;
+            WarningTimer.Remove(this);
         }
 
         private void SubButton_Click(object sender, EventArgs e)
