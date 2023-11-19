@@ -8,6 +8,8 @@ namespace オブザーバー
 {
     internal static class Program
     {
+        internal static WarningTimer WarningTimer { get; } = new WarningTimer();
+
         /// <summary>
         /// アプリケーションのメイン エントリ ポイントです。
         /// </summary>
