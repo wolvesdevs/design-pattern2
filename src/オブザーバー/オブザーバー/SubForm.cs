@@ -41,18 +41,18 @@ namespace オブザーバー
         private void MainForm_Disposed(object sender, EventArgs e)
         {
             //WarningTimer.WarningAction -= WarningTimer_WarningAction;
-            WarningTimer.Remove(this);
+            Program.WarningTimer.Remove(this);
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked)
             {
-                WarningTimer.Add(this);
+                Program.WarningTimer.Add(this);
             }
             else
             {
-                WarningTimer.Remove(this);
+                Program.WarningTimer.Remove(this);
             }
         }
     }

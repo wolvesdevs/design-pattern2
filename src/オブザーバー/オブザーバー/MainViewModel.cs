@@ -12,16 +12,18 @@ namespace オブザーバー
     public class MainViewModel : INotifyPropertyChanged, INotify, IDisposable
     {
         Dispatcher _dispatcher;
+        WarningTimerBase _warningTimerBase;
 
-        public MainViewModel(Dispatcher dispatcher)
+        public MainViewModel(Dispatcher dispatcher, WarningTimerBase warningTimerBase)
         {
             _dispatcher = dispatcher;
-            WarningTimer.Add(this);
+            _warningTimerBase = warningTimerBase;
+            _warningTimerBase.Add(this);
         }
 
         public void Dispose()
         {
-            WarningTimer.Remove(this);
+            _warningTimerBase.Remove(this);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -36,26 +38,35 @@ namespace オブザーバー
                 if (_warningLabelText != value)
                 {
                     _warningLabelText = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(WarningLabelText)));
+
+                    if (_dispatcher == null)
+                    {
+                        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(WarningLabelText)));
+                    }
+                    else
+                    {
+                        _dispatcher.Invoke((Action)delegate ()
+                        {
+                            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(WarningLabelText)));
+
+                        });
+                    }
                 }
             }
         }
 
         public void Update(bool isWarning)
         {
-            _dispatcher.Invoke((Action)delegate ()
+            if (isWarning)
             {
-                if (isWarning)
-                {
-                    WarningLabelText = "警報";
-                    //WarningLabel.BackColor = Color.Red;
-                }
-                else
-                {
-                    WarningLabelText = "正常";
-                    //WarningLabel.BackColor = Color.Lime;
-                }
-            });
+                WarningLabelText = "警報";
+                //WarningLabel.BackColor = Color.Red;
+            }
+            else
+            {
+                WarningLabelText = "正常";
+                //WarningLabel.BackColor = Color.Lime;
+            }
         }
     }
 }
